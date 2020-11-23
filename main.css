@@ -1,0 +1,119 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+body {
+    font-family: 'Roboto', sans-serif;    
+    width: 100%;    
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.header {
+    display: flex;
+    justify-content: space-around;
+    background-color: #F5F5F6;
+    height: 50px;
+}
+
+.logo {
+    width: 89px;
+    height: 23px;
+    align-self: center ;
+}
+
+
+.list {
+    width: 607px;
+    display: flex;
+    list-style-type: none;
+    justify-content: space-between;
+    font-size: 13px;
+    color: #959BA4;
+    align-self: center ;
+    /* line-height: 13px; */
+}
+
+
+.entrance {
+    width: 58px;
+    height: 33px;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-weight: 500;
+    align-self: center;
+}
+
+.container {
+}
+
+.title {
+    margin: 56px 0 0 253px;
+}
+
+.main {
+    margin: 33px 0 0 253px;
+    display: flex;
+}
+
+.left-container {
+
+}
+
+.par {
+    color: #9F9F9F;
+    font-size: 12px;
+}
+
+.currency-list {
+    display: flex;
+    list-style-type: none;
+    padding-left: 0px;
+    border: 0px solid black;
+    border-radius: 3px;
+    border: 1px solid #C6C6C6;
+}
+
+.currency-list__item {
+    width: 52px;
+    height: 30px;
+    border-radius: 0;
+    border: none;
+    color: #C6C6C6;
+    background-color: #ffffff;
+    font-size: 12px;
+    line-height: 14px;
+    border-right: 1px solid #C6C6C6;
+    
+}
+
+.currency-list__change{
+    border: none;
+    border-radius: 0; 
+    width: 52px;
+    height: 30px;
+    color: #C6C6C6;
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.input-currency {
+    
+}
+
+.input-currency__value {
+    width: 259px;
+    height: 102px;
+    border: 1px solid #E5E5E5;
+    box-sizing: border-box;
+    border-radius: 3px;
+}
+.input-currency__rate {
+}
+.button-change {
+}
+.button-change__first {
+}
+.rigth-container {
+}
