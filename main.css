@@ -31,7 +31,7 @@ body {
     font-size: 13px;
     color: #959BA4;
     align-self: center ;
-    /* line-height: 13px; */
+    line-height: 15px;
 }
 
 
@@ -41,7 +41,7 @@ body {
     background-color: #ffffff;
     border: none;
     border-radius: 4px;
-    font-weight: 500;
+    font-weight: 700;
     align-self: center;
 }
 
@@ -76,7 +76,7 @@ body {
 }
 
 .currency-list__item {
-    width: 52px;
+    width: 44px;
     height: 30px;
     border-radius: 0;
     border: none;
@@ -91,7 +91,7 @@ body {
 .currency-list__change{
     border: none;
     border-radius: 0; 
-    width: 52px;
+    width: 46px;
     height: 30px;
     color: #C6C6C6;
     font-size: 12px;
@@ -103,17 +103,31 @@ body {
 }
 
 .input-currency__value {
-    width: 259px;
+    width: 224px;
     height: 102px;
     border: 1px solid #E5E5E5;
     box-sizing: border-box;
     border-radius: 3px;
+    padding: 0 0 53px 14px;
+    font-size: 36px;
+    line-height: 42px;
 }
 .input-currency__rate {
+    margin: -35px 0 0 16px;
+    font-size: 12px;
+    line-height: 14px;
+    color: #C6C6C6;
+
 }
 .button-change {
+    width: 37px;
+    height: 32px;
+    margin: 120px 38px 0 38px;
 }
 .button-change__first {
+    background-color: #ffffff;
+    border: none;
 }
 .rigth-container {
+
 }
