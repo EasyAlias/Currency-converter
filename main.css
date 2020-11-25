@@ -150,3 +150,8 @@ main {
     left: 47%;
 
 }
+
+.active {
+    background-color: #833AE0;
+    color: #ffffff;
+}
