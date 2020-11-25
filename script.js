@@ -110,7 +110,7 @@ rightSelect.forEach((el) => {
     })
 })
 
-
+//создаем функции для обработки значений в полях input
 
 function getValueLeft(currencyFrom, currencyTo, leftInput, rightInput) {
 
@@ -122,7 +122,7 @@ function getValueLeft(currencyFrom, currencyTo, leftInput, rightInput) {
                 return leftValueOneUnits.innerText = '';
             }
             leftValueOneUnits.innerText = `1 ${currencyFrom} = ${data.rates[currencyTo].toFixed(4)} ${currencyTo}`
-            console.log(rightInput.value = leftInput.value * data.rates[currencyTo].toFixed(4));
+            rightInput.value = leftInput.value * data.rates[currencyTo].toFixed(4);
         })
 }
 
@@ -134,14 +134,28 @@ function getValueRight(currencyFrom, currencyTo, leftInput, rightInput) {
                 return rightValueOneUnits.innerText = '';
             }
             rightValueOneUnits.innerText = `1 ${currencyTo} = ${data.rates[currencyFrom].toFixed(4)} ${currencyFrom}`;
-            console.log(leftInput.value = rightInput.value * data.rates[currencyFrom].toFixed(4));
-        })
-    
+            leftInput.value = rightInput.value * data.rates[currencyFrom].toFixed(4);
+        })    
 }
 
-        // changeButton.addEventListener('click', (event) => {
+function getValueChange(currencyFrom, currencyTo, leftInput, rightInput) {
+    fetch(`https://api.ratesapi.io/api/latest?base=${currencyFrom}&symbols=${currencyTo}`)
+        .then(res => res.json())
+        .then(data => {
+            if (currencyFrom === currencyTo) {
+                return rightValueOneUnits.innerText = '';
+            }
+            leftValueOneUnits.innerText = `1 ${currencyTo} = ${data.rates[currencyFrom].toFixed(4)} ${currencyFrom}`;
+            rightValueOneUnits.innerText = `1 ${currencyFrom} = ${data.rates[currencyTo].toFixed(4)} ${currencyTo}`
+            rightInput.value = leftInput.value * data.rates[currencyTo].toFixed(4);
+        })    
+}
+
+        changeButton.addEventListener('click', (event) => {
+            console.log('Hello')
+            getValueChange(currencyFrom, currencyTo, leftInput, rightInput)
             
-        // })
+        })
 
         
         getValueLeft(currencyFrom, currencyTo, leftInput, rightInput);
