@@ -51,7 +51,7 @@
                     </li>
                 </ul>
                 <div class="input-currency">
-                    <input class="input-currency__value left-input" type="number">
+                    <input class="input-currency__value left-input" type="number" oninput = "getValueLeft(currencyFrom, currencyTo, leftInput, rightInput)" >
                     <div class="input-currency__rate">    
                         <p class="left-input-currency__rate-p"></p>                  
                     </div>
@@ -80,12 +80,13 @@
                         <button class="currency-list__item right-button">GBP</button>
                     </li>
                     <li>
-                        <select class="currency-list__change right-select">                           <option value="byr">BYR</option>
+                        <select class="currency-list__change right-select">  
+                            <option value="byr">BYR</option>
                         </select>
                     </li>
                 </ul>
                 <div class="input-currency">
-                    <input class="input-currency__value right-input" type="number">
+                    <input class="input-currency__value right-input" type="number" oninput = "getValueRight(currencyFrom, currencyTo, leftInput, rightInput)";  >
                     <div class="input-currency__rate"> 
                         <p class="right-input-currency__rate-p"></p>                
                     </div>

@@ -92,7 +92,7 @@ main {
 .currency-list__change{
     border: none;
     border-radius: 0; 
-    width: 47px;
+    width: 49px;
     height: 30px;
     color: #C6C6C6;
     font-size: 12px;
@@ -104,7 +104,7 @@ main {
 }
 
 .input-currency__value {
-    width: 224px;
+    width: 226px;
     height: 102px;
     border: 1px solid #E5E5E5;
     box-sizing: border-box;
