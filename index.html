@@ -24,13 +24,18 @@
     </header>
     <main>
         <div class="title">
-            <h1>Конвертер валют онлайн</h1>
+            <h1 >Конвертер валют онлайн</h1>
+        </div>
+        <div class="container-title">
+            <div class="par first-par">
+                <p>У меня есть</p>
+            </div>
+            <div class="par second-par">
+                <p>Хочу приобрести</p>
+            </div>
         </div>
         <div class ="section">
             <div class="left-container">
-                <div class="par">
-                    <p>У меня есть</p>
-                </div>
                 <ul class="currency-list">
                     <li>
                         <button class="currency-list__item left-button">RUB</button>
@@ -51,21 +56,18 @@
                     </li>
                 </ul>
                 <div class="input-currency">
-                    <input class="input-currency__value left-input" type="number" oninput = "getValueLeft(currencyFrom, currencyTo, leftInput, rightInput)" >
+                    <input class="input-currency__value left-input" type="number" oninput = "getValueLeft()">
                     <div class="input-currency__rate">    
                         <p class="left-input-currency__rate-p"></p>                  
                     </div>
-                </div>            
-            </div>
+                </div>
+            </div> 
             <div class="button-change">
                 <button class="button-change__first">   
                     <img src="/img/change-button.svg" alt="change-button">
                 </button>
             </div>
-            <div class="rigth-container">
-                <div class="par">
-                    <p>Хочу приобрести</p>
-                </div>
+            <div class="right-container">
                 <ul class="currency-list">
                     <li>
                         <button class="currency-list__item right-button">RUB</button>
@@ -86,16 +88,16 @@
                     </li>
                 </ul>
                 <div class="input-currency">
-                    <input class="input-currency__value right-input" type="number" oninput = "getValueRight(currencyFrom, currencyTo, leftInput, rightInput)";  >
+                    <input class="input-currency__value right-input" type="number" oninput = "getValueRight()">
                     <div class="input-currency__rate"> 
                         <p class="right-input-currency__rate-p"></p>                
                     </div>
-                </div> 
-            </div>    
+                </div>
+            </div>   
         </div>
     </main>
     <!-- <div class="loading">
-        <p>Loading</p>
+        <span>Loading</span>
     </div> -->
     <script src="/script.js"></script>
 </body>

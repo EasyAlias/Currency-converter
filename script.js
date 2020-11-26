@@ -10,17 +10,19 @@ let select = document.querySelectorAll('.currency-list__change');
 let leftInput = document.querySelector('.left-input');
 let rightInput = document.querySelector('.right-input');
 let changeButton = document.querySelector('.button-change__first');
+let section = document.querySelector('.section');
 
 let options = []; 
 
 leftInput.value = 1;
+// let valueLeftInput = Number (leftInput.value).toFixed(4);
 rightInput.value;
+// let valueRightInput = Number (rightInput.value).toFixed(4);
 let currencyFrom = 'RUB';
 let currencyTo = 'USD';
 
 
 // создаем элементы в select => option
-
 select.forEach((elem) => {
     fetch('https://api.ratesapi.io/api/latest')
     .then((res) => {
@@ -39,7 +41,6 @@ select.forEach((elem) => {
 })
 
 // обрабатываем кники по button and select left input
-
 leftButtons.forEach((el) => {
     el.addEventListener('click', () => {
         leftButtons.forEach(elem => {
@@ -50,8 +51,8 @@ leftButtons.forEach((el) => {
         })
         el.classList.add('active');
         currencyFrom = el.innerText;
-        getValueLeft(currencyFrom, currencyTo, leftInput, rightInput);
-        getValueRight(currencyFrom, currencyTo, leftInput, rightInput);
+        getValueLeft();
+        getValueRight();
     })
 });
 
@@ -73,13 +74,12 @@ leftSelect.forEach((el) => {
             } 
         })
         currencyFrom = el.value;
-        getValueLeft(currencyFrom, currencyTo, leftInput, rightInput);
-        getValueRight(currencyFrom, currencyTo, leftInput, rightInput);
+        getValueLeft();
+        getValueRight();
     })
 })
 
 // обрабатываем кники по button and select right input
-
 rightButtons.forEach((el) => {
     el.addEventListener('click', () => {
         rightButtons.forEach(elem => {
@@ -90,8 +90,8 @@ rightButtons.forEach((el) => {
         })
         el.classList.add('active');
         currencyTo = el.innerText;
-        getValueLeft(currencyFrom, currencyTo, leftInput, rightInput);
-        getValueRight(currencyFrom, currencyTo, leftInput, rightInput);
+        getValueLeft();
+        getValueRight();
     })
 });
 
@@ -105,14 +105,13 @@ rightSelect.forEach((el) => {
         })
         el.classList.add('active');
         currencyTo = el.value;
-        getValueLeft(currencyFrom, currencyTo, leftInput, rightInput);
-        getValueRight(currencyFrom, currencyTo, leftInput, rightInput);
+        getValueLeft();
+        getValueRight();
     })
 })
 
 //создаем функции для обработки значений в полях input
-
-function getValueLeft(currencyFrom, currencyTo, leftInput, rightInput) {
+function getValueLeft() {
 
     fetch(`https://api.ratesapi.io/api/latest?base=${currencyFrom}&symbols=${currencyTo}`)
         .then(res => res.json())
@@ -126,7 +125,7 @@ function getValueLeft(currencyFrom, currencyTo, leftInput, rightInput) {
         })
 }
 
-function getValueRight(currencyFrom, currencyTo, leftInput, rightInput) {
+function getValueRight() {
     fetch(`https://api.ratesapi.io/api/latest?base=${currencyTo}&symbols=${currencyFrom}`)
         .then(res => res.json())
         .then(data => {
@@ -138,25 +137,14 @@ function getValueRight(currencyFrom, currencyTo, leftInput, rightInput) {
         })    
 }
 
-function getValueChange(currencyFrom, currencyTo, leftInput, rightInput) {
-    fetch(`https://api.ratesapi.io/api/latest?base=${currencyFrom}&symbols=${currencyTo}`)
-        .then(res => res.json())
-        .then(data => {
-            if (currencyFrom === currencyTo) {
-                return rightValueOneUnits.innerText = '';
-            }
-            leftValueOneUnits.innerText = `1 ${currencyTo} = ${data.rates[currencyFrom].toFixed(4)} ${currencyFrom}`;
-            rightValueOneUnits.innerText = `1 ${currencyFrom} = ${data.rates[currencyTo].toFixed(4)} ${currencyTo}`
-            rightInput.value = leftInput.value * data.rates[currencyTo].toFixed(4);
-        })    
-}
+//замена контейнеров
+changeButton.addEventListener('click', () =>{
+    section.classList.toggle('row-reverse');
+});
 
-        changeButton.addEventListener('click', (event) => {
-            console.log('Hello')
-            getValueChange(currencyFrom, currencyTo, leftInput, rightInput)
-            
+        changeButton.addEventListener('click', () => {
+            getValueChange() 
         })
 
-        
-        getValueLeft(currencyFrom, currencyTo, leftInput, rightInput);
-        getValueRight(currencyFrom, currencyTo, leftInput, rightInput);
+        getValueLeft();
+        getValueRight();
