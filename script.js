@@ -31,12 +31,12 @@ select.forEach((elem) => {
             let keysArr = Object.keys(data.rates);
 
             keysArr.forEach((el) => {
-                        let option = document.createElement('option');
-                        option.innerHTML = el;
-                        option.classList.add('option-in');
-                        elem.append(option);
-                        options.push(option);
-                    });
+                let option = document.createElement('option');
+                option.innerHTML = el;
+                option.classList.add('option-in');
+                elem.append(option);
+                options.push(option);
+            });
         })    
 })
 
@@ -136,15 +136,10 @@ function getValueRight() {
             leftInput.value = rightInput.value * data.rates[currencyFrom].toFixed(4);
         })    
 }
+    getValueLeft();
+    getValueRight();
 
-//замена контейнеров
+//получение новой валютной пары
 changeButton.addEventListener('click', () =>{
     section.classList.toggle('row-reverse');
-});
-
-        changeButton.addEventListener('click', () => {
-            getValueChange() 
-        })
-
-        getValueLeft();
-        getValueRight();
+});       

@@ -6,7 +6,11 @@ body {
     font-family: 'Roboto', sans-serif;    
     width: 100%;    
     margin: 0 auto;
-    box-sizing: border-box;
+    box-sizing: border-box;    
+    background-image: initial;
+}
+
+.body {     
 }
 
 .header {
@@ -46,7 +50,7 @@ body {
 }
 
 main {
-
+    margin-left: 30px;
 }
 
 .title {    
@@ -78,16 +82,6 @@ main {
     margin-left: 55px;
 
 }
-
-/*
-.first-par {
-    margin-right: 100px;
-
-}
-
-.second-par {
-    padding-right: 175px;
-} */
 
 .currency-list {
     display: flex;
@@ -138,32 +132,41 @@ main {
     color: #C6C6C6;
 
 }
+
 .button-change {
     width: 37px;
     height: 32px;
-    margin: 120px 38px 0 38px;
+    margin: 100px 38px 0 38px;
 }
+
 .button-change__first {
     background-color: #ffffff;
     border: none;
 }
 
 .loading {
-    width: 100%;
-    height: 100%;
-}
-
-.loading p {
     width: 129px;
     height: 54px;
-    background: #FFFFFF;
+    position: relative;
+    left: 590px;
+    bottom: 75px;
+    z-index: 1;
+    background-color: #FFFFFF;
+}
+
+.loading span {
+    position: relative;
+    left: 20px;
+    top: 12px;
     border-radius: 3px;
     font-size: 24px;
     line-height: 28px;
-    position: absolute;
-    top: 30%;
-    left: 47%;
+}
 
+.block {
+    z-index: -1;
+    opacity: 0;
+    transition: all .3s linear;
 }
 
 .active {
