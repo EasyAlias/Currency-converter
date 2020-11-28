@@ -144,23 +144,33 @@ main {
     border: none;
 }
 
+.load {
+    display: none;
+    width:100%;
+    height: 2000px;
+    background-color: rgba(0,0,0,0.5);
+    overflow:hidden;
+    position:fixed;
+    top:0px;
+}
+
 .loading {
+    margin: 290px auto 0px;
     width: 129px;
     height: 54px;
-    position: relative;
-    left: 590px;
-    bottom: 75px;
-    z-index: 1;
-    background-color: #FFFFFF;
+    padding:10px;
+    background-color: #ffffff;
+    border-radius:3px;
+    box-shadow: 0px 0px 10px #000;
 }
 
 .loading span {
     position: relative;
     left: 20px;
     top: 12px;
-    border-radius: 3px;
     font-size: 24px;
     line-height: 28px;
+
 }
 
 .block {
@@ -172,4 +182,11 @@ main {
 .active {
     background-color: #833AE0;
     color: #ffffff;
+}
+
+.mistake {
+    display: none; 
+    justify-content: center;
+    font-size: 28px;
+    color: red;
 }

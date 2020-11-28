@@ -1,5 +1,3 @@
-
-
 let leftButtons = document.querySelectorAll(".left-button");
 let rightButtons = document.querySelectorAll(".right-button");
 let leftSelect = document.querySelectorAll(".left-select");
@@ -11,6 +9,8 @@ let leftInput = document.querySelector('.left-input');
 let rightInput = document.querySelector('.right-input');
 let changeButton = document.querySelector('.button-change__first');
 let section = document.querySelector('.section');
+let load = document.querySelector('.load');
+let mistake = document.querySelector('.mistake');
 
 let options = []; 
 
@@ -20,7 +20,6 @@ rightInput.value;
 // let valueRightInput = Number (rightInput.value).toFixed(4);
 let currencyFrom = 'RUB';
 let currencyTo = 'USD';
-
 
 // создаем элементы в select => option
 select.forEach((elem) => {
@@ -53,6 +52,7 @@ leftButtons.forEach((el) => {
         currencyFrom = el.innerText;
         getValueLeft();
         getValueRight();
+        getMistake ();
     })
 });
 
@@ -76,6 +76,7 @@ leftSelect.forEach((el) => {
         currencyFrom = el.value;
         getValueLeft();
         getValueRight();
+        getMistake ();
     })
 })
 
@@ -92,6 +93,7 @@ rightButtons.forEach((el) => {
         currencyTo = el.innerText;
         getValueLeft();
         getValueRight();
+        getMistake ();
     })
 });
 
@@ -107,12 +109,12 @@ rightSelect.forEach((el) => {
         currencyTo = el.value;
         getValueLeft();
         getValueRight();
+        getMistake ();
     })
 })
 
 //создаем функции для обработки значений в полях input
 function getValueLeft() {
-
     fetch(`https://api.ratesapi.io/api/latest?base=${currencyFrom}&symbols=${currencyTo}`)
         .then(res => res.json())
         .then(data => {
@@ -134,7 +136,7 @@ function getValueRight() {
             }
             rightValueOneUnits.innerText = `1 ${currencyTo} = ${data.rates[currencyFrom].toFixed(4)} ${currencyFrom}`;
             leftInput.value = rightInput.value * data.rates[currencyFrom].toFixed(4);
-        })    
+        })
 }
     getValueLeft();
     getValueRight();
@@ -143,3 +145,23 @@ function getValueRight() {
 changeButton.addEventListener('click', () =>{
     section.classList.toggle('row-reverse');
 });       
+
+//Описание загрузки и ошибки
+function getMistake () {
+    fetch(`https://api.ratesapi.io/api/latest?base=${currencyFrom}&symbols=${currencyTo}`)
+    .then(res => res.json())
+    .then(data => {
+        if(data) {
+            mistake.style.display = 'none';
+            load.style.display = 'none';
+            clearTimeout();
+        } else {
+            setTimeout(() => {
+                load.style.display = 'block';
+            }, 5);
+        };
+    })
+    .catch(error => {
+        mistake.style.display = 'flex';
+    });
+};
